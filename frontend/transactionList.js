@@ -1,6 +1,7 @@
+import {apiUrl} from "./config.js"
 const table = document.getElementById("table");
 const myBody = document.getElementById("bodyTransactionsRow");
-fetch("http://localhost:3000/transactions")
+fetch(apiUrl)
   .then((response) => response.json())
   .then((data) => {
     data.forEach((item) => {    
