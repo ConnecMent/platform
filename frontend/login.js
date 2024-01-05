@@ -1,5 +1,5 @@
 import { isUsernameValid, isPasswordValid } from "./utils";
-import { apiUrl } from "./config.js";
+// import { apiUrl } from "./config.js";
 
 let loginForm = document.getElementById("login-form");
 let usernameInput = document.getElementById("username-input");
