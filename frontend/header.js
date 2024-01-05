@@ -18,4 +18,11 @@ async function headerAPI() {
   document.getElementById("header-token").textContent = response["balance"];
 }
 
+function logout() {
+  console.log("logout!");
+  localStorage.clear();
+  window.location.href = "./login.html";
+}
+
 document.addEventListener("DOMContentLoaded", headerAPI);
+document.getElementById("logout").addEventListener("click", logout);

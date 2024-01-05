@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
-    <script defer src="checkLogin.js"></script>
-    <script defer src="headerAPI.js" type="module"></script>
+    <!-- <script defer src="checkLogin.js"></script> -->
+    <script defer src="header.js" type="module"></script>
     <script defer src="main.js" type="module"></script>
   </head>
   <body class="h-screen">
@@ -24,11 +24,16 @@
               id="header-name"
               >name</span
             >
-            <span
-              class="text-sm font-semibold leading-6 text-gray-900"
-              id="header-token"
-              >token</span
-            >
+            <div>
+              <span
+                class="text-sm font-semibold leading-6 text-gray-900"
+                id="header-token"
+                >token
+              </span>
+              <button id="logout" class="pl-4 text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-700">
+                  Logout
+              </button>
+            </div>
           </div>
         </div>
 
