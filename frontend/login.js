@@ -4,6 +4,7 @@ let loginForm = document.getElementById("login-form");
 let usernameInput = document.getElementById("username-input");
 let passwordInput = document.getElementById("password-input");
 let togglePasswordBtn = document.getElementById("toggle-password-btn");
+let dataServerErrorElement = document.querySelector("[data-server-error]");
 let usernameInputTouched = false;
 let passwordInputTouched = false;
 
@@ -39,11 +40,27 @@ loginForm.addEventListener("submit", (e) => {
   usernameInputValidation(usernameInput.value);
   console.log(errorsObject);
   if (isObjEmpty(errorsObject)) {
+    dataServerErrorElement.innerHTML = "";
     let formData = new FormData(loginForm);
     var object = {};
     formData.forEach((value, key) => (object[key] = value));
     var json = JSON.stringify(object);
-    fetch(base_url);
+    fetch(base_url, {
+      method: "POST",
+      body: json,
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", object.username);
+      })
+      .catch((err) => {
+        let errorElement = document.createElement("li");
+        errorElement.textContent = "username or password is incorrect";
+        dataServerErrorElement.append(errorElement);
+      });
   }
 });
 
