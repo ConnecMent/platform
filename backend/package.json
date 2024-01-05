@@ -1,0 +1,42 @@
+{
+  "name": "platform",
+  "version": "0.0.1",
+  "description": "backend service of connecment platform",
+  "repository": "",
+  "license": "GPL-3.0",
+  "author": "",
+  "type": "module",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "rimraf dist && tsc",
+    "start": "node --watch --experimental-specifier-resolution=node --loader ./ts-node-esm-loader.js ./src/index.ts",
+    "start:prod": "node --experimental-specifier-resolution=node ./dist/src/index.js",
+    "type-check": "tsc --noEmit",
+    "typeorm": "NODE_OPTIONS=--experimental-specifier-resolution=node typeorm-ts-node-esm",
+    "typeorm:generate": "npm run typeorm migration:generate ./src/db/migrations/migration -- -p -d ./src/data-source.ts",
+    "typeorm:migrate": "npm run typeorm migration:run -- -d ./src/data-source.ts"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "config": "^3.3.7",
+    "express": "^4.18.1",
+    "pg": "^8.11.3",
+    "reflect-metadata": "^0.1.13",
+    "sqlite3": "^5.0.8",
+    "typeorm": "^0.3.6"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/config": "^0.0.41",
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.11.18",
+    "husky": "^8.0.0",
+    "lint-staged": "^13.0.3",
+    "ts-node": "^10.7.0",
+    "tsconfig-paths": "^4.1.2",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  }
+}
