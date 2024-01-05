@@ -1,13 +1,94 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <title>Home Page</title>
+    <script defer src="checkLogin.js"></script>
+    <script defer src="headerAPI.js" type="module"></script>
+    <script defer src="main.js" type="module"></script>
   </head>
-  <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+  <body class="h-screen">
+    <header class="h-1/6">
+      <nav
+        class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
+      >
+        <div class="flex flex-row items-center">
+          <img
+            class="rounded-full w-16 mx-2"
+            src="https://avatars.githubusercontent.com/u/147716382?s=100&v=4"
+          />
+          <div class="flex flex-col">
+            <span
+              class="text-2xl font-bold leading-6 text-gray-900"
+              id="header-name"
+              >name</span
+            >
+            <span
+              class="text-sm font-semibold leading-6 text-gray-900"
+              id="header-token"
+              >token</span
+            >
+          </div>
+        </div>
+
+        <div class="flex">
+          <!-- if your page is active, add the class in your div link page -->
+          <!-- class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold" -->
+
+          <div
+            class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold"
+          >
+            <a href="./" class="mx-4 text-base leading-6 text-gray-900">Home</a>
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./transfer.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transfer</a
+            >
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./transactionList.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transactions</a
+            >
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./usersindex.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Balances</a
+            >
+          </div>
+        </div>
+
+        <div class="flex">
+          <a href="https://github.com/ConnecMent/platform" target="_blank"
+            ><img
+              class="w-16"
+              src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png"
+              alt="Github Logo"
+          /></a>
+        </div>
+      </nav>
+    </header>
+
+    <main class="w-full h-5/6 flex flex-col items-center justify-center">
+      <div
+        class="rounded-3xl shadow-xl bg-gradient-to-r from-indigo-700 to-indigo-500 flex flex-col h-2/6 w-2/6 items-center justify-center"
+      >
+        <span id="main-name" class="text-6xl font-semibold text-white"
+          >Name</span
+        >
+        <span id="main-token" class="pt-1 text-xl font-semibold text-white"
+          >token</span
+        >
+      </div>
+    </main>
   </body>
 </html>

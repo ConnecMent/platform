@@ -1,7 +1,6 @@
-import './style.css'
 import { apiUrl } from "./config.js";
 
-async function updateCardInfo() {
+async function headerAPI() {
   const username = localStorage.getItem("username");
   const response = await fetch(`${apiUrl}/info`, {
     method: "POST",
@@ -15,8 +14,8 @@ async function updateCardInfo() {
     return j.json();
   });
 
-  document.getElementById("main-name").textContent = username;
-  document.getElementById("main-token").textContent = response["balance"];
+  document.getElementById("header-name").textContent = username;
+  document.getElementById("header-token").textContent = response["balance"];
 }
 
-document.addEventListener("DOMContentLoaded", updateCardInfo);
+document.addEventListener("DOMContentLoaded", headerAPI);
