@@ -6,7 +6,7 @@
     <title>Home Page</title>
     <script defer src="main.js" type="module"></script>
   </head>
-  <body class="h-screen">
+  <body class="h-screen" onload="getApi()">
     <header class="h-1/6">
       <nav
         class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
@@ -66,10 +66,24 @@
         <span id="main-name" class="text-6xl font-semibold text-white"
           >Name</span
         >
-        <span id="main-token" class="text-xl font-semibold text-white"
+        <span id="main-token" class="pt-1 text-xl font-semibold text-white"
           >token</span
         >
       </div>
+
+      <script>
+        async function getApi() {
+          const apiUrl = "http://localhost:3000";
+          const response = await fetch(`${apiUrl}/profile`).then((j) => {
+            return j.json();
+        });
+
+        document.getElementById("main-name").textContent = response["name"];
+        document.getElementById("header-name").textContent = response["name"];
+        document.getElementById("main-token").textContent = response["token"];
+        document.getElementById("header-token").textContent = response["token"];
+        }
+      </script>
     </main>
   </body>
 </html>
