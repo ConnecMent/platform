@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="./utils.js"></script>
+    <script defer type="module" src="./login.js"></script>
+    <title>Login</title>
+  </head>
+  <body class="h-svh w-full bg-indigo-400">
+    <main class="h-full w-full relative">
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 rounded-sm -translate-y-1/2 w-[500px] bg-white px-6 py-8"
+      >
+        <form class="flex flex-col gap-5 mb-5" id="login-form">
+          <div>
+            <input
+              placeholder="username"
+              name="username"
+              id="username-input"
+              type="text"
+              class="px-2 py-3 placeholder:text-base text-lg rounded-sm bg-gray-200 w-full mb-2"
+              autocomplete="new-password"
+            />
+            <ul
+              class="bg-red-200 rounded-sm list-disc px-6 [&>li]:text-red-950"
+            ></ul>
+          </div>
+          <div>
+            <div class="relative">
+              <input
+                placeholder="password"
+                name="password"
+                id="password-input"
+                type="password"
+                class="px-2 py-3 text-lg rounded-sm placeholder:text-base bg-gray-200 w-full mb-2 relative"
+                autocomplete="new-password"
+              />
+              <button
+                id="toggle-password-btn"
+                class="size-5 absolute top-1/2 right-3 -translate-y-1/2"
+              >
+                <img
+                  src="/public/images/eye-slash.png"
+                  class="w-full h-full object-contain"
+                />
+              </button>
+            </div>
+            <ul
+              class="bg-red-200 rounded-sm list-disc px-6 [&>li]:text-red-950"
+            ></ul>
+          </div>
+          <button
+            type="submit"
+            class="w-full py-3 text-white text-xl font-medium rounded-sm bg-indigo-700 hover:bg-indigo-500 transition-colors"
+          >
+            Login
+          </button>
+        </form>
+        <div class="w-full">
+          <ul
+            data-server-error
+            class="bg-red-200 rounded-sm list-disc px-6 [&>li]:text-red-950"
+          ></ul>
+        </div>
+      </div>
+    </main>
+    <script type="module" src="/main.js"></script>
+  </body>
+</html>
