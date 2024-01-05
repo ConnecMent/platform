@@ -6,8 +6,8 @@
     <title>Home Page</title>
     <script defer src="main.js" type="module"></script>
   </head>
-  <body>
-    <header>
+  <body class="h-screen">
+    <header class="h-1/6">
       <nav
         class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
       >
@@ -59,10 +59,17 @@
       </nav>
     </header>
 
-    <main
-      class="mt-2 rounded-3xl shadow-xl bg-gradient-to-r from-indigo-700 to-indigo-500 mx-auto flex w-4/12 items-center justify-between py-4 px-8"
-    >
-      <MAIN></MAIN>
+    <main class="w-full h-5/6 flex flex-col items-center justify-center">
+      <div
+        class="rounded-3xl shadow-xl bg-gradient-to-r from-indigo-700 to-indigo-500 flex flex-col h-2/6 w-2/6 items-center justify-center"
+      >
+        <span id="main-name" class="text-6xl font-semibold text-white"
+          >Name</span
+        >
+        <span id="main-token" class="text-xl font-semibold text-white"
+          >token</span
+        >
+      </div>
     </main>
   </body>
 </html>
