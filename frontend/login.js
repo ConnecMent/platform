@@ -1,4 +1,5 @@
 import { isUsernameValid, isPasswordValid } from "./utils";
+import { apiUrl } from "./config.js";
 
 let loginForm = document.getElementById("login-form");
 let usernameInput = document.getElementById("username-input");
@@ -45,7 +46,7 @@ loginForm.addEventListener("submit", (e) => {
     var object = {};
     formData.forEach((value, key) => (object[key] = value));
     var json = JSON.stringify(object);
-    fetch(base_url, {
+    fetch(apiUrl, {
       method: "POST",
       body: json,
     })
@@ -55,6 +56,7 @@ loginForm.addEventListener("submit", (e) => {
       .then((data) => {
         localStorage.setItem("token", data.token);
         localStorage.setItem("username", object.username);
+        document.location.href = "/";
       })
       .catch((err) => {
         let errorElement = document.createElement("li");
