@@ -4,11 +4,90 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer type="module" src="./header.js"></script>
+    <script defer src="./checkLogin.js"></script>
     <title>Transfer Page</title>
   </head>
-  <body class="flex justify-center items-center bg-indigo-400 text-blue-800">
+  <body class="h-screen">
+    <header class="">
+      <nav
+        class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
+      >
+        <div class="flex flex-row items-center">
+          <img
+            class="rounded-full w-16 mx-2"
+            src="https://avatars.githubusercontent.com/u/147716382?s=100&v=4"
+          />
+          <div class="flex flex-col">
+            <span
+              class="text-2xl font-bold leading-6 text-gray-900"
+              id="header-name"
+              >name</span
+            >
+            <div>
+              <span
+                class="text-sm font-semibold leading-6 text-gray-900"
+                id="header-token"
+                >token
+              </span>
+              <button id="logout" class="pl-4 text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-700">
+                  Logout
+              </button>
+            </div>
+          </div>
+        </div>
 
-    <script defer src="./transferScript.js"></script>
+        <div class="flex">
+          <!-- if your page is active, add the class in your div link page -->
+          <!-- class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold" -->
+
+          <div class="font-semibold"
+            
+          >
+            <a href="./" class="mx-4 text-base leading-6 text-gray-900">Home</a>
+          </div>
+
+          <div class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold">
+            <a
+              href="./transfer.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transfer</a
+            >
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./transactionList.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transactions</a
+            >
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./usersindex.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Balances</a
+            >
+          </div>
+        </div>
+
+        <div class="flex">
+          <a href="https://github.com/ConnecMent/platform" target="_blank"
+            ><img
+              class="w-16"
+              src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png"
+              alt="Github Logo"
+          /></a>
+        </div>
+      </nav>
+    </header>
+    <div class="bg-indigo-400 text-blue-800 w-full flex justify-center items-center h-full">
+    <div id="transfer-container" class="w-[500px] flex flex-col gap-4 bg-white p-8 rounded-sm">
+
+    </div>
+  </div>
+    <script defer type="module" src="./transferScript.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

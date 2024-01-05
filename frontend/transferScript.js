@@ -1,4 +1,5 @@
 import { apiUrl } from "./config.js"
+const transferContainer = document.getElementById("transfer-container")
 const usersArray = [];
 
 function send(to, from, note, balance) {
@@ -62,7 +63,7 @@ async function getMents(username) {
 async function loadpage() {
   await getAll();
 
-  document.body.innerHTML = "";
+ transferContainer.innerHTML = "";
 
   const balance = document.createElement("input");
   const from = document.createElement("select");
@@ -72,6 +73,7 @@ async function loadpage() {
   balance.type = "number";
   balance.placeholder = "100";
   const submit = document.createElement("button");
+  submit.setAttribute("class", "w-full rounded-sm py-3 text-xl font-medium text-white bg-indigo-700 hover:bg-indigo-500 transition-colors")
   submit.textContent = "submit";
   
   submit.addEventListener("click", () => {
@@ -87,12 +89,12 @@ async function loadpage() {
         }
       }
     });
-    
-  document.body.appendChild(from);
-  document.body.appendChild(to);
-  document.body.appendChild(submit);
-  document.body.appendChild(balance);
-  document.body.appendChild(note);
+  // balance.classList.add("bg-indigo-400");
+  transferContainer.appendChild(from);
+  transferContainer.appendChild(to);
+  transferContainer.appendChild(balance);
+  transferContainer.appendChild(note);
+  transferContainer.appendChild(submit);
   const me = "admin";
   if (me == "admin") {
     usersArray.forEach((element) => {
