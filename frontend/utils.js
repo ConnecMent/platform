@@ -25,7 +25,7 @@ export function isUsernameValid(userName){
 export function isPasswordValid(password){
     let len =  password.length;
 
-    if(len<10){
+    if(len<5){
         return false;
     }
 
