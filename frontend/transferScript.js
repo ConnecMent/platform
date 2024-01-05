@@ -4,7 +4,7 @@ function send(to, from, note, balance) {
   const me = localStorage.getItem("username");
   const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:3000/user`, {
+  fetch(`http://localhost:3000/transfer`, {
     method: "POST",
     body: JSON.stringify({  
       userusername: me,
@@ -27,7 +27,7 @@ function send(to, from, note, balance) {
 }
 
 async function getAll() {
-  const ddd = await fetch(`http://localhost:3000/user`)
+  const ddd = await fetch(`http://localhost:3000/balances`)
     .then((response) => {return response.json();})
     .catch((error) => {
       console.log(error);
@@ -40,7 +40,7 @@ async function getAll() {
 }
 
 async function getMents(username) {
-  fetch(`http://localhost:3000/user`)
+  fetch(`http://localhost:3000/balances`)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -83,7 +83,7 @@ async function loadpage() {
         if (sender < balance) {
           window.alert("Sendr doesn't have enough money");
         } else {
-          send(userT, userF, notee, balance);
+          send(to, from, note, balance);
         }
       }
     });
