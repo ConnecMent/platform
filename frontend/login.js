@@ -46,7 +46,7 @@ loginForm.addEventListener("submit", (e) => {
     var object = {};
     formData.forEach((value, key) => (object[key] = value));
     var json = JSON.stringify(object);
-    fetch(apiUrl, {
+    fetch(`${apiUrl}/login`, {
       method: "POST",
       body: json,
       headers: {
