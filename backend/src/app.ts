@@ -9,7 +9,7 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/v1', router);
+app.use('/', router);
 
 const startApp = () => {
   app.listen(apiPort, apiHost, () => {

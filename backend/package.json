@@ -19,6 +19,7 @@
   "dependencies": {
     "config": "^3.3.7",
     "express": "^4.18.1",
+    "pg": "^8.11.3",
     "reflect-metadata": "^0.1.13",
     "sqlite3": "^5.0.8",
     "typeorm": "^0.3.6"

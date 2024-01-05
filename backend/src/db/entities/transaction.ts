@@ -3,31 +3,31 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   ManyToOne,
-  Relation
-} from 'typeorm';
-import { User } from './user';
+  Relation,
+} from "typeorm";
+import { User } from "./user";
 
 @Entity()
 export class Transaction {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @ManyToOne('User', 'id', {
+  @ManyToOne("User", "username", {
     cascade: true,
   })
   from: Relation<User>;
 
-  @ManyToOne('User', 'id', {
+  @ManyToOne("User", "username", {
     cascade: true,
   })
   to: Relation<User>;
 
-  @Column('integer')
+  @Column("integer")
   amount: number;
 
-  @Column('varchar')
+  @Column("varchar")
   note: string;
 
-  @Column('integer')
+  @Column("integer")
   timestamp: number;
 }
