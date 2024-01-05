@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home Page</title>
     <script defer src="main.js" type="module"></script>
+    <script defer src="headerAPI.js"></script>
+    <script defer src="homepage.js"></script>
   </head>
-  <body class="h-screen" onload="getApi()">
+  <body class="h-screen">
     <header class="h-1/6">
       <nav
         class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
@@ -70,21 +72,6 @@
           >token</span
         >
       </div>
-
-      <script>
-        async function getApi() {
-          const apiUrl = "http://localhost:3000";
-          const response = await fetch(`${apiUrl}/profile`).then((j) => {
-            return j.json();
-          });
-
-          document.getElementById("main-name").textContent = response["name"];
-          document.getElementById("header-name").textContent = response["name"];
-          document.getElementById("main-token").textContent = response["token"];
-          document.getElementById("header-token").textContent =
-            response["token"];
-        }
-      </script>
     </main>
   </body>
 </html>
