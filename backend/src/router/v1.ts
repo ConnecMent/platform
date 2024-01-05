@@ -34,7 +34,7 @@ router.post("/login", async (req, res) => {
 });
 
 router.post("/transfer", async (req, res) => {
-  const { username, token, from, to, amount } = req.body;
+  const { username, token, from, to, amount, note } = req.body;
   const user = await userRepository.findOne({
     where: { username: username, token: token },
   });
@@ -54,21 +54,49 @@ router.post("/transfer", async (req, res) => {
       fromUser.balance -= amount;
       toUser.balance += amount;
       await userRepository.save([fromUser, toUser]);
+      await txRepository.insert({
+        from: fromUser,
+        to: toUser,
+        amount,
+        timestamp: Date.now(),
+        note,
+      });
       res.status(200).send();
     }
     res.status(400).send();
-  } else{
-    res.status(403).send()
+  } else {
+    res.status(403).send();
   }
 });
-router.get("/transactions", (req, res) => {
-  throw new Error("no implemented");
+
+router.get("/transactions", async (req, res) => {
+  const txs = await txRepository.find();
+  res.status(200).send(txs);
 });
-router.get("/balances", (req, res) => {
-  throw new Error("no implemented");
+
+router.get("/balances", async (req, res) => {
+  const users = await userRepository.find();
+  res.status(200).send(
+    users.map((user) => ({
+      username: user.username,
+      balance: user.balance,
+    }))
+  );
 });
-router.post("/info", (req, res) => {
-  throw new Error("no implemented");
+
+router.post("/info", async (req, res) => {
+  const { username } = req.body;
+  const user = await userRepository.findOne({
+    where: { username: username },
+  });
+  if (!user) {
+    res.status(403).send();
+    return;
+  }
+  res.status(200).send({
+    username: user.username,
+    balance: user.balance,
+  });
 });
 
 export default router;
