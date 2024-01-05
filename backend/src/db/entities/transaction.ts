@@ -25,9 +25,11 @@ export class Transaction {
   @Column("integer")
   amount: number;
 
-  @Column("varchar")
+  @Column("varchar", {nullable: true})
   note: string;
 
-  @Column("integer")
+  @Column({
+    type: "bigint",
+  })
   timestamp: number;
 }
