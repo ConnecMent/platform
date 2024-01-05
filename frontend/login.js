@@ -1,5 +1,5 @@
 import { isUsernameValid, isPasswordValid } from "./utils";
-// import { apiUrl } from "./config.js";
+import { apiUrl } from "./config.js";
 
 let loginForm = document.getElementById("login-form");
 let usernameInput = document.getElementById("username-input");
@@ -49,6 +49,9 @@ loginForm.addEventListener("submit", (e) => {
     fetch(apiUrl, {
       method: "POST",
       body: json,
+      headers: {
+        "Content-Type": "application/json",
+      },
     })
       .then((response) => {
         return response.json();
@@ -75,6 +78,14 @@ togglePasswordBtn.addEventListener("click", () => {
   } else {
     passwordInput.setAttribute("type", "password");
     togglePasswordBtn.querySelector("img").src = "/public/images/eye-slash.png";
+  }
+});
+
+window.addEventListener("load", () => {
+  let username = localStorage.getItem("username");
+  let token = localStorage.getItem("token");
+  if (token && username) {
+    document.location.href = "/";
   }
 });
 
