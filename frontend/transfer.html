@@ -6,53 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Transfer Page</title>
   </head>
-  <body class="flex justify-center items-center bg-indigo-400">
-    <div class="h-7.5"></div>
-    <div class="flex-col items-center justify-center">
-      <label for="value">Ment:</label>
-      <input
-        class="h-7.5 w-30 placeholder-indigo-300"
-        type="number"
-        id="value"
-        placeholder="100"
-      />
-    </div>
-    <div class="h-15 w-2"></div>
+  <body class="flex justify-center items-center bg-indigo-400 text-blue-800">
 
-    <div class="flex items-center">
-      <select name="from" id="userF">
-        <optgroup label="connecment">
-          <option value="admin">Admin</option>
-          <option value="mentor">mentor</option>
-        </optgroup>
-        <optgroup label="mentee">
-          <option value="mrf">mrf</option>
-          <option value="kiarash">kiarash</option>
-          <option value="mahta">mahta</option>
-          <option value="fatemeh">fatemeh</option>
-          <option value="mohammad">mohammad</option>
-        </optgroup>
-      </select>
-      <select name="to" id="userT">
-        <optgroup label="connecment">
-          <option value="admin">Admin</option>
-          <option value="mentor">mentor</option>
-        </optgroup>
-        <optgroup label="mentee">
-          <option value="mrf">mrf</option>
-          <option value="kiarash">kiarash</option>
-          <option value="mahta">mahta</option>
-          <option value="fatemeh">fatemeh</option>
-          <option value="mohammad">mohammad</option>
-        </optgroup>
-      </select>
-      <button class="bg-indigo-300" id="submit" onclick="transferMent()">
-        Submit
-      </button>
-    </div>
-  </div>
-
-    <div id="app"></div>
+    <script defer src="./transferScript.js"></script>
     <script type="module" src="./main.js"></script>
   </body>
 </html>
