@@ -1,12 +1,8 @@
 const usersArray = [];
 
-function Send() {
+function send(to, from, note, balance) {
   const me = localStorage.getItem("username");
   const token = localStorage.getItem("token");
-  const to = localStorage.getItem("to");
-  const from = localStorage.getItem("from");
-  const note = localStorage.getItem("note");
-  const balance = localStorage.getItem("balance");
 
   fetch(`http://localhost:3000/user`, {
     method: "POST",
@@ -79,24 +75,19 @@ async function loadpage() {
       "Are you sure you want to transfer this much ment?"
       );
       if (confirmed) {
-        from = document.getElementById("userF").value;
-        to = document.getElementById("userT").value;
-        balance = document.getElementById("value").value;
+        userF = document.getElementById("from").value;
+        userT = document.getElementById("to").value;
+        balance = document.getElementById("balance").value;
+        const notee = document.getElementById("note");
         const sender = getMents(from);
         if (sender < balance) {
           window.alert("Sendr doesn't have enough money");
         } else {
-          localStorage.setItem("to") = to;
-          localStorage.setItem("from")=from;
-          localStorage.setItem("note")=note;
-          localStorage.setItem("balance")=balance;
-          localStorage.setItem("from")=from;
-          transfer();
+          send(userT, userF, notee, balance);
         }
       }
     });
     
-  const users = ["admin", "mrf", "mahta", "fatemeh", "kiarash", "mohammad"];
   document.body.appendChild(from);
   document.body.appendChild(to);
   document.body.appendChild(submit);
