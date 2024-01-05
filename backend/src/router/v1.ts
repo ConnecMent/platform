@@ -1,13 +1,21 @@
-import { Router } from 'express';
-
-import { PathRouter } from '@/types';
+import { Router } from "express";
 
 const router = Router();
 
-const routes: PathRouter[] = [
-  // Add any path router pairs here
-];
-
-routes.forEach((route) => router.use(route.path, route.router));
+router.post("/login", (req, res) => {
+  throw new Error("no implemented");
+});
+router.post("/transfer", (req, res) => {
+  throw new Error("no implemented");
+});
+router.get("/transactions", (req, res) => {
+  throw new Error("no implemented");
+});
+router.get("/balances", (req, res) => {
+  throw new Error("no implemented");
+});
+router.post("/info", (req, res) => {
+  throw new Error("no implemented");
+});
 
 export default router;

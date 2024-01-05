@@ -1,18 +1,14 @@
-import path from 'path';
-import { fileURLToPath } from 'url';
+import { DataSource } from "typeorm";
 
-import { DataSource } from 'typeorm';
+import entities from "./db/entities";
 
-import entities from './db/entities';
+import migrations from "./db/migrations";
 
-import migrations from './db/migrations';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+import { postgresUrl } from "./configs";
 
 export const dataSource = new DataSource({
-  type: 'sqlite',
-  database: __dirname + '/sqlite/db.sqlite',
+  type: "postgres",
+  url: postgresUrl,
   entities,
   migrations,
   synchronize: false,
