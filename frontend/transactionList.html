@@ -3,20 +3,25 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Transaction list</title>
+    <style>
+        td {
+            padding-left: 10px;
+        }
+    </style>
 </head>
-<body>
-    <table class="table-auto" id="table">
+<body class="h-screen flex items-center justify-center">
+    <table class="table-auto " id="table">
         <thead>
             <tr class="bg-indigo-300">
                 <th>Date</th>
-                <th>Amount</th>
                 <th>From</th>
                 <th>To</th>
+                <th>Amount</th>
                 <th>Note</th>
             </tr>
         </thead>
-        <tbody id="bodyTransactionsRow"></tbody>
+        <tbody id="bodyTransactionsRow" class="bg-indigo-100"></tbody>
     </table>
     <script src="transactionList.js"></script>
     <script type="module" src="./main.js"></script>
