@@ -8,7 +8,7 @@ fetch(`${apiUrl}/transactions`)
       const record = document.createElement("tr");
       const timestamp = document.createElement("td");
       const mainDate = new Date (+item.timestamp);
-      timestamp.innerHTML = `${mainDate.getMonth()} / ${mainDate.getDay()} / ${mainDate.getFullYear()}`;
+      timestamp.innerHTML = `${mainDate.getMonth()+1} / ${mainDate.getDay()} / ${mainDate.getFullYear()}`;
       const from = document.createElement("td"); 
       from.innerHTML = item.from;
       const to = document.createElement("td");
