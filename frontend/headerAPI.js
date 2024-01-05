@@ -1,5 +1,6 @@
+import { apiUrl } from "./config.js";
+
 async function headerAPI() {
-  const apiUrl = "http://localhost:3000";
   const response = await fetch(`${apiUrl}/profile`).then((j) => {
     return j.json();
   });
