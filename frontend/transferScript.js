@@ -1,10 +1,11 @@
+import { apiUrl } from "./config.js"
 const usersArray = [];
 
 function send(to, from, note, balance) {
   const me = localStorage.getItem("username");
   const token = localStorage.getItem("token");
 
-  fetch(`http://localhost:3000/transfer`, {
+  fetch( apiUrl  + `/transfer`, {
     method: "POST",
     body: JSON.stringify({  
       userusername: me,
@@ -14,6 +15,9 @@ function send(to, from, note, balance) {
       amount: balance,
       note: note,
     }),
+    header: {
+      'content-type': 'application/json'
+    },
   })
     .then((response) => response.json())
     .then((data) => {
@@ -27,7 +31,7 @@ function send(to, from, note, balance) {
 }
 
 async function getAll() {
-  const ddd = await fetch(`http://localhost:3000/balances`)
+  const ddd = await fetch(apiUrl  + `/balances`)
     .then((response) => {return response.json();})
     .catch((error) => {
       console.log(error);
@@ -40,7 +44,7 @@ async function getAll() {
 }
 
 async function getMents(username) {
-  fetch(`http://localhost:3000/balances`)
+  fetch(apiUrl  + `/balances`)
     .then((response) => response.json())
     .then((data) => {
       data.forEach((item) => {
@@ -75,13 +79,9 @@ async function loadpage() {
       "Are you sure you want to transfer this much ment?"
       );
       if (confirmed) {
-        userF = document.getElementById("from").value;
-        userT = document.getElementById("to").value;
-        balance = document.getElementById("balance").value;
-        const notee = document.getElementById("note");
         const sender = getMents(from);
         if (sender < balance) {
-          window.alert("Sendr doesn't have enough money");
+          window.alert("Sender doesn't have enough money");
         } else {
           send(to, from, note, balance);
         }
