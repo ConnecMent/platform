@@ -5,7 +5,7 @@ export class User {
   @PrimaryColumn("varchar")
   username: string;
 
-  @Column("varchar")
+  @Column("varchar", {nullable: true})
   password: string;
 
   @Column("integer")
