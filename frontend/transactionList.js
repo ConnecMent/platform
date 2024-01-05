@@ -7,7 +7,7 @@ fetch(apiUrl)
     data.forEach((item) => {    
       const record = document.createElement("tr");
       const timestamp = document.createElement("td");
-      const mainDate = new Date (item.timestamp);
+      const mainDate = new Date (+item.timestamp);
       timestamp.innerHTML = `${mainDate.getMonth()} / ${mainDate.getDay()} / ${mainDate.getFullYear()}`;
       const from = document.createElement("td"); 
       from.innerHTML = item.from;
