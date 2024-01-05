@@ -1,3 +1,4 @@
+import { apiUrl } from "./config.js";
 let dataArray = [];
 let text = `
 <div class="bg-indigo-600 p-3 rounded-lg text-white font-sans font-medium">User</div>
@@ -5,7 +6,7 @@ let text = `
 `;
 
 async function fetchData() {
-  const response = await fetch("http://localhost:3000/users");
+  const response = await fetch(apiUrl + "/balances");
   const data = await response.json();
   dataArray = data;
   console.log(dataArray);
