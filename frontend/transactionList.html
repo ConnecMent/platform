@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Transaction list</title>
+    <script defer type="module" src="header.js"></script>
+    <style>
+      td {
+        padding-left: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="h-1/6">
+      <nav
+        class="shadow-lg mx-auto flex items-center justify-between py-4 px-8"
+      >
+        <div class="flex flex-row items-center">
+          <img
+            class="rounded-full w-16 mx-2"
+            src="https://avatars.githubusercontent.com/u/147716382?s=100&v=4"
+          />
+          <div class="flex flex-col">
+            <span
+              class="text-2xl font-bold leading-6 text-gray-900"
+              id="header-name"
+              >name</span
+            >
+            <div>
+              <span
+                class="text-sm font-semibold leading-6 text-gray-900"
+                id="header-token"
+                >token
+              </span>
+              <button
+                id="logout"
+                class="pl-4 text-sm font-semibold leading-6 text-gray-700 hover:text-indigo-700"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex">
+          <!-- if your page is active, add the class in your div link page -->
+          <!-- class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold" -->
+
+          <div class="font-semibold">
+            <a href="./" class="mx-4 text-base leading-6 text-gray-900">Home</a>
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./transfer.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transfer</a
+            >
+          </div>
+
+          <div
+            class="border-b-4 border-solid rounded border-indigo-400 pb-1 font-bold"
+          >
+            <a
+              href="./transactionList.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Transactions</a
+            >
+          </div>
+
+          <div class="font-semibold">
+            <a
+              href="./usersindex.html"
+              class="mx-4 text-base leading-6 text-gray-900"
+              >Balances</a
+            >
+          </div>
+        </div>
+
+        <div class="flex">
+          <a href="https://github.com/ConnecMent/platform" target="_blank"
+            ><img
+              class="w-16"
+              src="https://github.githubassets.com/assets/GitHub-Logo-ee398b662d42.png"
+              alt="Github Logo"
+          /></a>
+        </div>
+      </nav>
+    </header>
+
+    <div class="bg-indigo-200 h-screen flex items-center justify-center">
+      <table
+        class="table-auto bg-indigo-100 text-indigo-900 -translate-y-full border-separate border border-slate-800"
+        id="table"
+      >
+        <thead class="bg-indigo-600 text-white">
+          <tr>
+            <th class="border border-slate-600">Date</th>
+            <th class="border border-slate-600">From</th>
+            <th class="border border-slate-600">To</th>
+            <th class="border border-slate-600">Amount</th>
+            <th class="border border-slate-600">Note</th>
+          </tr>
+        </thead>
+        <tbody id="bodyTransactionsRow" class="bg-indigo-100"></tbody>
+      </table>
+      <script type="module" src="transactionList.js"></script>
+      <script type="module" src="./main.js"></script>
+    </div>
+  </body>
+</html>
