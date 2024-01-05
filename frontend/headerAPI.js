@@ -1,7 +1,7 @@
 import { apiUrl } from "./config.js";
 
 async function headerAPI() {
-  const username = localStorage.get("username");
+  const username = localStorage.getItem("username");
   const response = await fetch(`${apiUrl}/info`, {
     method: "POST",
     body: JSON.stringify({
