@@ -1,7 +1,7 @@
 import { apiUrl } from "./config.js";
-const username = localStorage.get("username");
 
 async function updateCardInfo() {
+  const username = localStorage.get("username");
   const response = await fetch(`${apiUrl}/info`, {
     method: "POST",
     body: JSON.stringify({
