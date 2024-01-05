@@ -70,8 +70,14 @@ router.post("/transfer", async (req, res) => {
 });
 
 router.get("/transactions", async (req, res) => {
-  const txs = await txRepository.find();
-  res.status(200).send(txs);
+  const txs = await txRepository.find({ relations: { from: true, to: true } });
+  res.status(200).send(
+    txs.map((tx) => ({
+      ...tx,
+      from: tx.from.username,
+      to: tx.to.username,
+    }))
+  );
 });
 
 router.get("/balances", async (req, res) => {
