@@ -1,0 +1,7 @@
+{
+  "balances": [
+    { "username": "bank", "balance": 9999980 },
+    { "username": "mohammd", "balance": 2 },
+    { "username": "mahta", "balance": 18 }
+  ]
+}
