@@ -13,7 +13,7 @@ async function fetchData() {
   await dataArray.forEach(
     (items) =>
       (text += `<div class="flex bg-indigo-100 p-3 rounded-lg text-indigo-900 font-sans font-medium"><img src="profile-user.svg" class="mr-3 size-7"/>${items["username"]}</div>
-<div class="flex bg-indigo-100 p-3 rounded-lg col-span-2 text-indigo-900 font-sans font-medium">${items["balance"]}<img src="MENT-LOGO.svg" class="ml-2 size-6"/></div>`)
+<div class="flex bg-indigo-100 p-3 rounded-lg col-span-2 text-indigo-900 font-sans font-medium">${items["balance"]}<img src="/MENT-LOGO.svg" class="ml-2 size-6"/></div>`)
   );
 
   document.getElementById("Users").innerHTML = text;

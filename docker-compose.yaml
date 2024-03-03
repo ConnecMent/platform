@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - sitg_network
+    restart: always
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB']
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
+  backend:
+    build: ./backend
+    environment:
+      - API_PORT=9091
+      - API_HOST=0.0.0.0
+      - POSTGRES_URL=postgresql://$POSTGRES_USER:$POSTGRES_PASSWORD@db:$POSTGRES_PORT/$POSTGRES_DB
+    volumes:
+      - ./logs/:/app/services/watcher/logs/
+    networks:
+      - sitg_network
+    restart: always
+    ports:
+      - 127.0.0.1:9091:9091
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - API_PORT=9091
+        - API_HOST=localhost
+    networks:
+      - sitg_network
+    restart: always
+    ports:
+      - 127.0.0.1:4173:4173
+
+volumes:
+  postgres-data:
+
+networks:
+  sitg_network:

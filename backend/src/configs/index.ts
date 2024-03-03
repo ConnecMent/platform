@@ -1,6 +1,4 @@
-import config from "config";
+export const apiPort = +process.env.API_PORT!;
+export const apiHost = process.env.API_HOST!;
 
-export const apiPort = config.get<number>("api.port");
-export const apiHost = config.get<string>("api.host");
-
-export const postgresUrl = config.get<string>("postgres.url");
+export const postgresUrl = process.env.POSTGRES_URL!;
